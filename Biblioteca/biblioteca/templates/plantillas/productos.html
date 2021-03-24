@@ -1,0 +1,33 @@
+{% extends 'plantillas/main.html' %} ## extendemos de la plantilla main.html
+
+## traemos el bloque de contenido de la plantilla main
+{% block contenido%}
+
+<br>
+
+<div class="row">
+  <div class="col-md">
+    <div class="card card-body">
+      <h5>Products</h5>
+    </div>
+    <div class="card card-body">
+      <table class="table">
+        <tr>
+          <th>Product</th>
+          <th>Category</th>
+          <th>Price</th>
+        </tr>
+        {% for i in producto %}
+        <tr>
+          <td>{{i.nombre}}</td>
+          <td>{{i.categoria}}</td>
+          <td>{{i.precio}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

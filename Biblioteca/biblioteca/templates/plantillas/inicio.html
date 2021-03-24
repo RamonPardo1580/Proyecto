@@ -1,0 +1,57 @@
+{% extends 'plantillas/main.html' %} ## extendemos de la plantilla main.html
+## traemos el bloque de contenido de la plantilla main
+
+{% block contenido%}
+{% include 'plantillas/estatus.html' %}
+<br>
+
+<div class="row">
+	<div class="col-md-5">
+		<h5>Clientes:</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="">Create Customer</a>
+			<table class="table table-sm">
+				<tr>
+					<th>Clientes</th>
+					<th>Pedidos</th>
+				</tr>
+				{% for c in cliente %}
+				<tr>
+					<td>{{c.nombre}}</td>
+					<td>{{c.telefono}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+
+	<div class="col-md-7">
+		<h5>Ultimos 5 pedidos</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="">Create Order</a>
+			<table class="table table-sm">
+				<tr>
+					<th>Producto</th>
+					<th>Fecha del pedido</th>
+					<th>Estatus</th>
+					<th>Actualizar</th>
+					<th>Eliminar</th>
+				</tr>
+				{% for ped in pedido %}
+				<tr>
+					<td>{{ped.producto}}</td>
+					<td>{{ped.fecha_creada}}</td>
+					<td>{{ped.estatus}}</td>
+					<td><a href="">Actualizar</a></td>
+					<td><a href="">Eliminar</a></td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+
+</div>
+
+{% endblock %}
