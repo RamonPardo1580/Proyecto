@@ -10,14 +10,16 @@
 		<h5>Clientes:</h5>
 		<hr>
 		<div class="card card-body">
-			<a class="btn btn-primary  btn-sm btn-block" href="">Create Customer</a>
+			<a class="btn btn-primary  btn-sm btn-block" href="">Crear Cliente</a>
 			<table class="table table-sm">
 				<tr>
+					<th></th>
 					<th>Clientes</th>
 					<th>Pedidos</th>
 				</tr>
 				{% for c in cliente %}
 				<tr>
+					<td><a class="btn btn-primary  btn-sm btn-block" href="{% url 'clientes' c.id %}">Ver</a></td>
 					<td>{{c.nombre}}</td>
 					<td>{{c.telefono}}</td>
 				</tr>
@@ -30,7 +32,6 @@
 		<h5>Ultimos 5 pedidos</h5>
 		<hr>
 		<div class="card card-body">
-			<a class="btn btn-primary  btn-sm btn-block" href="">Create Order</a>
 			<table class="table table-sm">
 				<tr>
 					<th>Producto</th>
@@ -39,15 +40,17 @@
 					<th>Actualizar</th>
 					<th>Eliminar</th>
 				</tr>
+
 				{% for ped in pedido %}
 				<tr>
 					<td>{{ped.producto}}</td>
 					<td>{{ped.fecha_creada}}</td>
 					<td>{{ped.estatus}}</td>
-					<td><a href="">Actualizar</a></td>
-					<td><a href="">Eliminar</a></td>
+					<td><a class= "btn btn-sm btn-info" href="{% url 'actualizarPedido' ped.id %}">Actualizar</a></td>
+	        <td><a class= "btn btn-sm btn-danger" href="{% url 'eliminarPedido' ped.id %}">Eliminar</a></td>
 				</tr>
 				{% endfor %}
+
 			</table>
 		</div>
 	</div>

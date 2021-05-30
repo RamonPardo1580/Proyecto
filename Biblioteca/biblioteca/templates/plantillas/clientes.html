@@ -11,7 +11,7 @@
     <h5>Customer:</h5>
     <hr>
     <a class="btn btn-outline-info  btn-sm btn-block" href="">Actualizar Cliente</a>
-    <a class="btn btn-outline-danger  btn-sm btn-block" href="">Eliminar Cliente</a>
+    <a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'crearPedido' clientes.id %}">Nuevo Pedido</a>
 
   </div>
 </div>
@@ -39,8 +39,9 @@
 <div class="row">
 <div class="col">
   <div class="card card-body">
-    <form method="get">
 
+    <form method="get">
+    {{filtrar.form}}
       <button class="btn btn-primary" type="submit">Buscar</button>
     </form>
   </div>
@@ -56,6 +57,7 @@
       <tr>
         <th>Producto</th>
         <th>Categoria</th>
+        <th>Nota</th>
         <th>Fecha de pedido</th>
         <th>Estatus</th>
         <th>Actualizar</th>
@@ -66,10 +68,11 @@
       <tr>
         <td>{{pedido.producto}}</td>
         <td>{{pedido.producto.categoria}}</td>
+        <td>{{pedido.note}}</td>
         <td>{{pedido.fecha_creada}}</td>
         <td>{{pedido.estatus}}</td>
-        <td><a class= "btn btn-sm btn-info" href="">Actualizar</a></td>
-        <td><a class= "btn btn-sm btn-danger" href="">Eliminarr</a></td>
+        <td><a class= "btn btn-sm btn-info" href="{% url 'actualizarPedido' pedido.id %}">Actualizar</a></td>
+        <td><a class= "btn btn-sm btn-danger" href="{% url 'eliminarPedido' pedido.id %}">Eliminar</a></td>
       </tr>
       {% endfor %}
     </table>

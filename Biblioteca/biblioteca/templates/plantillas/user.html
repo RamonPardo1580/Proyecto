@@ -1,0 +1,32 @@
+{% extends 'plantillas/main.html' %}
+{% block contenido%}
+{% include 'plantillas/estatus.html' %}
+
+<div class="row">
+<div class="col-md">
+  <div class="card card-body">
+    <table class="table table-sm">
+      <tr>
+        <th>Producto</th>
+        <th>Categoria</th>
+        <th>Nota</th>
+        <th>Fecha de pedido</th>
+        <th>Estatus</th>
+      </tr>
+
+      {% for pedido in pedidos %}
+      <tr>
+        <td>{{pedido.producto}}</td>
+        <td>{{pedido.producto.categoria}}</td>
+        <td>{{pedido.note}}</td>
+        <td>{{pedido.fecha_creada}}</td>
+        <td>{{pedido.estatus}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+</div>
+
+
+{% endblock contenido%}

@@ -1,0 +1,21 @@
+{% extends 'plantillas/main.html' %}
+{% load static %}
+{% block contenido %}
+
+<br>
+<div class="row">
+  <div class="col-md6">
+    <div class="card card-body">
+
+      <p>Estas seguro que que quieres eliminar "{{item}}"?</p>
+      <form action="{% url 'eliminarPedido' item.id %}" method="post">
+        {% csrf_token %}
+        <a class = "btn btn-warning" href="{% url 'inicio' %}">Cancelar</a>
+        <input class = "btn btn-danger" type="submit" name="Eliminar">
+      </form>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

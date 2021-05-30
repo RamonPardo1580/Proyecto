@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'biblioteca',   ##Instalacion de la aplicacion en el servidor
+    'biblioteca.apps.BibliotecaConfig',   ##Instalacion de la aplicacion en el servidor
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +128,14 @@ STATICFILES_DIRS = [
      BASE_DIR / "static/",
 ]
 STATIC_ROOT = '/statico/'
+
+MEDIA_ROOT ='static/imagenes'
+
+# SMTP configuracion para la recuperacion de contraseña del correo electronico
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'ramonpardocruz@gmail.com'
+EMAIL_HOST_PASSWORD = 'JESUSpardo1580'
