@@ -1,0 +1,27 @@
+{%  extends 'accounts/main.html' %}
+{% load static %}
+{% block content %}
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<div class="card card-body">
+					<img src="{% static 'images/'%}{{product.imagen}}" width="200" height="200">
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="card card-body">
+						<p><b>Nombre:</b>      {{product.name}}</p>
+						<p><b>Tipo:</b>        {{product.category}}</p>
+						<p><b>Precio:</b>      {{product.price}}</p>
+						<p><b>Autor:</b>       {{product.autor}}</p>
+						<p><b>Editorial:</b>   {{product.editorial}}</p>
+						<p><b>Edición:</b>     {{product.edicion}}</p>
+						<p><b>Cantidad:</b>    {{product.cantidad}}</p>
+						<p><b>Descripción:</b> {{product.description}}</p>
+						<p><b>Fecha:</b>       {{product.date_created}}</p>
+						<p><b>Genero:</b>      {{product.tags.all}}</p>
+						<p><b>Localización:</b>{{product.locations.all}}</p>
+				</div>
+			</div>
+		</div>
+{% endblock content %}
